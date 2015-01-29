@@ -9,7 +9,8 @@ var mainApp = angular.module("mainApp", []);
             {text: "About", link: '/about'},
             {text: "Kittens", link: '/kittens'},
             {text: "404 Page", link: '/wefwrtbertbeb'},
-            {text: "Our Page", link: '/ourpage'}
+            {text: "Our Page", link: '/ourpage'},
+            {text: "GPACalculator", link: '/GPACalculator'}
         ];
     });
 
@@ -48,3 +49,26 @@ var mainApp = angular.module("mainApp", []);
            return $scope.data.length;
        };
     });
+mainApp.controller('GPACtrl', function($scope){
+    $scope.textField = "";
+
+    $scope.courseName = [
+
+    ];
+
+    $scope.creditNumber = [
+
+    ];
+
+    $scope.grade = [
+
+    ];
+
+    $scope.addGPA = function() {
+        if($scope.textField.length >= 1 && $scope.courseName.length >= 1 && $scope.creditNumber.length >= 1 && $scope.grade.length >= 1) {
+            $scope.courseName.push({text: $scope.courseName});
+            $scope.creditNumber.push({text: $scope.creditNumber});
+            $scope.grade.push({text: $scope.grade});
+        }
+    }
+});

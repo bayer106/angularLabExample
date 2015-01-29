@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>GPA calculator</title>
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.css">
+
+    <!-- Loading Javascript Stuff -->
+    <script type="text/javascript" src="javascript/clientJavascript.js"></script>
+    <script type="text/javascript" src="angularjs/angular.js"></script>
+    <script type="text/javascript" src="javascript/main.controller.js"></script>
+
+</head>
+<body ng-app="mainApp">
+<div ng-include="'views/navbar.html'"></div>
+<div class="container">
+    <ul class="list-group">
+        <li class="list-group-item">
+
+            <form ng-submit="addGPA()">
+                <input ng-model="courseName" type="text" size="25" placeholder="add a course to the list!">
+                <input ng-model="creditNumber" type="text" size="25" placeholder="add number of credits">
+                <input ng-model="grade" type="text" size="25" placeholder="add letter grade for the course!">
+                <input type="submit" value="submit" class="btn btn-primary">
+                <span class="floatRight">Your GPA: {{itemsInList()}}</span> <!---Change the function to reflect GPA --->
+            </form>
+
+        </li>
+        <li class="list-group-item" ng-repeat="test in courseName">{{test.text}}<span class="glyphicon glyphicon-trash floatRight" style="color: red" ng-click="removeData($index)"></span></li>
+        <!--- Change what array you are taking from --->
+    </ul>
+</div>
+
+</body>
+</html>
