@@ -27,3 +27,7 @@ img {
 .jumbotron p {
     text-align: center;
 }
+
+figure {
+    padding-bottom: 50px;
+}
