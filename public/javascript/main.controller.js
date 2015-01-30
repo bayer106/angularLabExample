@@ -50,25 +50,24 @@ var mainApp = angular.module("mainApp", []);
        };
     });
 mainApp.controller('GPACtrl', function($scope){
-    $scope.textField = "";
+    $scope.courseName = "";
+    $scope.credits = "";
+    $scope.letterGrade = "";
 
-    $scope.courseName = [
-
-    ];
-
-    $scope.creditNumber = [
-
-    ];
-
-    $scope.grade = [
+    $scope.gpaData = [
 
     ];
 
     $scope.addGPA = function() {
-        if($scope.textField.length >= 1 && $scope.courseName.length >= 1 && $scope.creditNumber.length >= 1 && $scope.grade.length >= 1) {
-            $scope.courseName.push({text: $scope.courseName});
-            $scope.creditNumber.push({text: $scope.creditNumber});
-            $scope.grade.push({text: $scope.grade});
+        if($scope.courseName.length >= 1 && $scope.credits.length >= 1 && $scope.letterGrade.length >= 1) {
+            $scope.gpaData.push({courseName: $scope.courseName, credits: $scope.credits,letterGrade: $scope.letterGrade });
+            $scope.courseName = "";
+            $scope.credits = "";
+            $scope.letterGrade = "";
         }
-    }
+    };
+
+    $scope.removeClass = function(index){
+        $scope.data.splice(index, 1);
+    };
 });
