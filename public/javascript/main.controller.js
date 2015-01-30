@@ -71,7 +71,7 @@ mainApp.controller('GPACtrl', function($scope){
         $scope.gpaData.splice(index, 1);
     };
 
-   /* $scope.calculateGPA = function(){
+    $scope.calculateGPA = function(){
         var creditByGrade = 0;
         var totalCredits = 0;
         for(i=0; i< $scope.gpaData.length;i++){
@@ -79,15 +79,5 @@ mainApp.controller('GPACtrl', function($scope){
             creditByGrade += (totalCredits * letterToNum($scope.gpaData[i].letterGrade));
       }
       return Number(creditByGrade / totalCredits);
-    };*/
-    $scope.calculateGPA = function() {
-        var index = 0;
-        var totalCredits = $scope.gpaData[index].credits;
-        var totalGPA = 0;
-        while (index < $scope.gpaData.length) {
-            totalGPA = (totalCredits * letterToNum($scope.gpaData[index].letterGrade));
-            index++;
-        }
-        return totalGPA;
-    }
+    };
 });
