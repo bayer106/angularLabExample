@@ -58,12 +58,23 @@ mainApp.controller('GPACtrl', function($scope){
        // {courseName:"", credits:"", letterGrade: ""}
     ];
 
+
+
     $scope.addGPA = function() {
-        if($scope.courseName.length >= 1 && $scope.credits.length >= 1 && $scope.letterGrade.length >= 1) {
-            $scope.gpaData.push({courseName: $scope.courseName, credits: $scope.credits,letterGrade: $scope.letterGrade });
-            $scope.courseName = "";
-            $scope.credits = "";
-            $scope.letterGrade = "";
+        if($scope.courseName.length >= 1 && $scope.credits.length >= 1 && $scope.letterGrade.length >= 1 ) {
+            var grade = $scope.letterGrade.toUpperCase();
+            grade = grade.charCodeAt(0);
+            if ($scope.credits <= 0){
+                alert("You have entered a number of credits below zero, invalid!");
+            } else if (grade < 65 || grade > 68 && grade != 70){
+                alert("You picked an invalid letter for a grade!");
+            } else {
+
+                $scope.gpaData.push({courseName: $scope.courseName, credits: $scope.credits, letterGrade: $scope.letterGrade });
+                $scope.courseName = "";
+                $scope.credits = "";
+                $scope.letterGrade = "";
+            }
         }
     };
 
@@ -93,16 +104,5 @@ mainApp.controller('GPACtrl', function($scope){
             return "problematic";
         }
     };
-
-    $scope.invalidInput = function (credit, grade){
-        if (credit <= 0){
-            alert("You have entered a number of credits below zero, invalid!");
-        }
-        grade = grade.toUpperCase();
-        grade = grade.charCodeat(0);
-        if((grade <65 || grade >68 ) && grade != 70){
-            alert("You picked an invalid letter for a grade!");
-        }
-    }
 
 });
