@@ -81,7 +81,7 @@ mainApp.controller('GPACtrl', function($scope){
         return Number(creditByGrade / totalCredits);
     };
 
-    $scope.gpaColor = function(){
+    $scope.gpaColorPicker = function(){
         var gpa = $scope.calculateGPA();
         if(gpa >= 3.0){
             return "excellent";
@@ -94,6 +94,15 @@ mainApp.controller('GPACtrl', function($scope){
         }
     };
 
-    
+    $scope.invalidInput = function (credit, grade){
+        if (credit <= 0){
+            alert("You have entered a number of credits below zero, invalid!");
+        }
+        grade = grade.toUpperCase();
+        grade = grade.charCodeat(0);
+        if((grade <65 || grade >68 ) && grade != 70){
+            alert("You picked an invalid letter for a grade!");
+        }
+    }
 
 });
