@@ -75,9 +75,25 @@ mainApp.controller('GPACtrl', function($scope){
         var creditByGrade = 0;
         var totalCredits = 0;
         for(i=0; i< $scope.gpaData.length;i++){
-            totalCredits += $scope.gpaData[i].credits;
-            creditByGrade += (totalCredits * letterToNum($scope.gpaData[i].letterGrade));
-      }
-      return Number(creditByGrade / totalCredits);
+            totalCredits += Number($scope.gpaData[i].credits);
+            creditByGrade += Number(($scope.gpaData[i].credits * letterToNum($scope.gpaData[i].letterGrade)));
+        }
+        return Number(creditByGrade / totalCredits);
     };
+
+    $scope.gpaColor = function(){
+        var gpa = $scope.calculateGPA();
+        if(gpa >= 3.0){
+            return "excellent";
+        }
+        else if(gpa >= 2.0 && gpa < 3.0){
+            return "good"
+        }
+        else if (gpa < 2.0){
+            return "problematic";
+        }
+    };
+
+    
+
 });

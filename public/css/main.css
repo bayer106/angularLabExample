@@ -31,3 +31,15 @@ img {
 figure {
     padding-bottom: 50px;
 }
+
+.excellent {
+    color: green;
+}
+
+.good {
+    color: #a35717;
+}
+
+.problematic {
+    color: red;
+}

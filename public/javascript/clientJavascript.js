@@ -29,3 +29,24 @@ var returnKittens = function(){
     return "kittens";
 };
 
+/**
+ *
+ * @param Takes a letter
+ * @returns {number} - returns a GPA number equivalent of the letter grade
+ */
+var letterToNum = function(letter){
+    letter = letter.toUpperCase();
+    switch(letter) {
+        case "A":
+            return 4.0;
+        case "B":
+            return 3.0;
+        case "C":
+            return 2.0;
+        case "D":
+            return 1.0;
+        default:
+            return 0.0;
+    }
+}
+
