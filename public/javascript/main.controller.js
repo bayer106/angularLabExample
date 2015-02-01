@@ -85,7 +85,7 @@ mainApp.controller('GPACtrl', function($scope){
     $scope.calculateGPA = function(){
         var creditByGrade = 0;
         var totalCredits = 0;
-        for(i=0; i< $scope.gpaData.length;i++){
+        for(i = 0; i< $scope.gpaData.length;i++){
             totalCredits += Number($scope.gpaData[i].credits);
             creditByGrade += Number(($scope.gpaData[i].credits * letterToNum($scope.gpaData[i].letterGrade)));
         }

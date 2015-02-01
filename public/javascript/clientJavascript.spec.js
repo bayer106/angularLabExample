@@ -11,28 +11,6 @@ describe('testing basic functions', function(){
 
 });
 
-//describe('testing calculateGPA', function(){
-//    it('should return the correct GPA for all "A"', function(){
-//        expect(calculateGPA("A", 4, "A", 4, "A", 4)).toEqual(4.0);
-//    });
-//
-//    it('should return the correct GPA for lowercase letter grades', function(){
-//        expect(calculateGPA("a", 4, "a", 4, "a", 4)).toEqual(4.0);
-//    });
-//
-//    it('should return a GPA of 0.0', function(){
-//        expect(calculateGPA("F", 4, "F", 4, "F", 4)).toEqual(0.0);
-//    });
-//
-//    it('should return the correct GPA when averaging grades', function(){
-//        expect(calculateGPA("c", 2, "c", 4, "D", 4)).toEqual(1.6);
-//    });
-//
-//    it('should return the correct GPA when averaging grades', function(){
-//        expect(calculateGPA("c", "2", "c", "4", "D", "4")).toEqual(1.6);
-//    });
-//});
-
 describe('testing letterToNum', function() {
     it('should return 4.0 for A', function () {
         expect(letterToNum("A")).toEqual(4.0);
