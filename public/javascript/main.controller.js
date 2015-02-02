@@ -55,22 +55,23 @@ mainApp.controller('GPACtrl', function($scope){
     $scope.letterGrade = "";
 
     $scope.gpaData = [
-       // {courseName:"", credits:"", letterGrade: ""}
+        //{courseName:"", credits:"", letterGrade: ""}
     ];
 
 
 
     $scope.addGPA = function() {
-        if($scope.courseName.length >= 1 && $scope.credits.length >= 1 && $scope.letterGrade.length >= 1 ) {
+        if($scope.courseName.length >= 1 && $scope.credits.length >= 1 && $scope.letterGrade.length == 1 ) {
             var grade = $scope.letterGrade.toUpperCase();
             grade = grade.charCodeAt(0);
-            document.write(typeof($scope.credits));
-            if ($scope.credits <= 0){
+            var numCheck = isNaN(Number($scope.credits)); //Checks to make sure the credits is a number
+            if ($scope.credits <= 0 ){
                 alert("You have entered a number of credits below zero, invalid!");
-            } else if (grade < 65 || grade > 68 && grade != 70){
+            } else if(numCheck) {
+                alert("Please, enter a numerical value for credits.");
+            }else if (grade < 65 || grade > 68 && grade != 70){
                 alert("You picked an invalid letter for a grade!");
             } else {
-
                 $scope.gpaData.push({courseName: $scope.courseName, credits: $scope.credits, letterGrade: $scope.letterGrade });
                 $scope.courseName = "";
                 $scope.credits = "";
@@ -93,8 +94,7 @@ mainApp.controller('GPACtrl', function($scope){
         return Number(creditByGrade / totalCredits);
     };
 
-    $scope.gpaColorPicker = function(){
-        var gpa = $scope.calculateGPA();
+    $scope.gpaColorPicker = function(gpa){
         if(gpa >= 3.0){
             return "excellent";
         }

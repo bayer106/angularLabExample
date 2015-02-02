@@ -108,6 +108,15 @@ describe('Testing controller: GPACtrl', function(){
             scope.removeClass(0);
             expect(scope.gpaData.length < initialLength).toEqual(true);
         });
+
+        it("testing gpaColorPicker", function(){
+            var highGpa = 4.0;
+            expect(scope.gpaColorPicker(highGpa)).toBe("excellent");
+            var midGpa = 2.9;
+            expect(scope.gpaColorPicker(midGpa)).toBe("good");
+            var lowGpa = 1.0;
+            expect(scope.gpaColorPicker(lowGpa)).toBe("problematic");
+        });
     });
 });
 
