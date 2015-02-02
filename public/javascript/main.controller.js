@@ -91,7 +91,12 @@ mainApp.controller('GPACtrl', function($scope){
             totalCredits += Number($scope.gpaData[i].credits);
             creditByGrade += Number(($scope.gpaData[i].credits * letterToNum($scope.gpaData[i].letterGrade)));
         }
-        return Number(creditByGrade / totalCredits);
+
+        if (isNaN(creditByGrade / totalCredits)) {
+            return ""; //space holder for the gpa output
+        } else {
+            return Number(creditByGrade / totalCredits);
+        }
     };
 
     $scope.gpaColorPicker = function(gpa){
@@ -99,7 +104,7 @@ mainApp.controller('GPACtrl', function($scope){
             return "excellent";
         }
         else if(gpa >= 2.0 && gpa < 3.0){
-            return "good"
+            return "good";
         }
         else if (gpa < 2.0){
             return "problematic";
