@@ -64,6 +64,7 @@ mainApp.controller('GPACtrl', function($scope){
         if($scope.courseName.length >= 1 && $scope.credits.length >= 1 && $scope.letterGrade.length >= 1 ) {
             var grade = $scope.letterGrade.toUpperCase();
             grade = grade.charCodeAt(0);
+            document.write(typeof($scope.credits));
             if ($scope.credits <= 0){
                 alert("You have entered a number of credits below zero, invalid!");
             } else if (grade < 65 || grade > 68 && grade != 70){

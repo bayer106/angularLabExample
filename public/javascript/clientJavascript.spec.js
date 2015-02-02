@@ -31,4 +31,9 @@ describe('testing letterToNum', function() {
         expect(letterToNum("D")).toEqual(1.0);
         expect(letterToNum("d")).toEqual(1.0);
     });
+
+    it('should return 0.0 for D', function () {
+        expect(letterToNum("F")).toEqual(0.0);
+        expect(letterToNum("f")).toEqual(0.0);
+    });
 });

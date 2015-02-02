@@ -93,7 +93,7 @@ describe('Testing controller: GPACtrl', function(){
         it("should be able to add an item to the list", function(){
             var initialLength = scope.gpaData.length;
             scope.courseName = "Csci";
-            scope.credits = 4;
+            scope.credits = "4";
             scope.letterGrade = "A";
             scope.addGPA();
             expect(scope.gpaData.length > initialLength).toEqual(true);
@@ -101,11 +101,11 @@ describe('Testing controller: GPACtrl', function(){
 
         it("should be able to remove an item from the list", function(){
             scope.courseName = "Csci";
-            scope.credits = 4;
+            scope.credits = "4";
             scope.letterGrade = "A";
             scope.addGPA();
             var initialLength = scope.gpaData.length;
-            scope.removeClass(1);
+            scope.removeClass(0);
             expect(scope.gpaData.length < initialLength).toEqual(true);
         });
     });
